@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+#  ╦ ╦╦╔╦╗╔═╗  ╔╗ ╔═╗╦═╗
+#  ╠═╣║ ║║║╣   ╠╩╗╠═╣╠╦╝
+#  ╩ ╩╩═╩╝╚═╝  ╚═╝╩ ╩╩╚═
+#
+
+function hide() {
+	
+case "${RICETHEME}" in
+<<<<<<< HEAD
+    tokyonight|jan|aline|gruvbox|pamela)
+=======
+    catppuccin|jan|aline|gruvbox|pamela)
+>>>>>>> 21ed051 (initial)
+        polybar-msg cmd hide | bspc config top_padding 2
+        ;;
+    onedark|cristina)
+        polybar-msg cmd hide | bspc config bottom_padding 2
+        ;;
+    nord|cynthia)
+        polybar-msg cmd hide | bspc config top_padding 2 | bspc config bottom_padding 2
+        ;;
+    z0mbi3)
+        eww -c "$HOME"/.config/bspwm/rices/z0mbi3/bar close bar | bspc config left_padding 2
+        ;;
+    andrea)
+        eww -c "$HOME"/.config/bspwm/rices/andrea/arin close-all | bspc config top_padding 2
+        ;;
+    zomnight)
+        polybar-msg cmd hide | bspc config top_padding 2
+        ;;
+    *)
+        echo "Error: Something fails dud.."
+        ;;
+esac
+	
+}
+
+function unhide() {
+	
+case "${RICETHEME}" in
+<<<<<<< HEAD
+	tokyonight)
+=======
+	catppuccin)
+>>>>>>> 21ed051 (initial)
+		polybar-msg cmd show | bspc config top_padding 59
+		;;
+	jan)
+		polybar-msg cmd show | bspc config top_padding 64
+		;;
+	pamela)
+		polybar-msg cmd show | bspc config top_padding 59
+		;;
+	aline)
+		polybar-msg cmd show | bspc config top_padding 57
+		;;
+	gruvbox)
+		polybar-msg cmd show | bspc config top_padding 52
+		;;
+	onedark)
+		polybar-msg cmd show | bspc config bottom_padding 42
+		;;
+	nord)
+		polybar-msg cmd show | bspc config top_padding 42 | bspc config bottom_padding 40
+		;;
+	cynthia)
+		polybar-msg cmd show | bspc config top_padding 48 | bspc config bottom_padding 48
+		;;
+	cristina)
+		polybar-msg cmd show | bspc config bottom_padding 60
+		;;
+	z0mbi3)
+		eww -c "$HOME"/.config/bspwm/rices/z0mbi3/bar open bar | bspc config left_padding 79
+		;;
+	zomnight)
+		polybar-msg cmd show | bspc config top_padding 48
+		;;
+	andrea)
+		eww -c "$HOME"/.config/bspwm/rices/andrea/arin open-many \
+		   search \
+		   apps \
+		   weather \
+		   music \
+		   system | bspc config top_padding 67
+		;;
+	*)
+		echo "Error: Something fails dud.."
+		;;
+esac
+
+}
+
+case $1 in
+	-h | --hide | hide)
+		hide
+		exit;;
+	-u | --unhide | unhide)
+		unhide
+		exit;;
+	*) # Invalid option
+		echo "Error: Invalid option"
+		exit;;
+esac
